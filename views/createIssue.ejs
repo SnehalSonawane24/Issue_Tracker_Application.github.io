@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Tracker - Create Issue</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <h1>Create New Issue</h1>
+    <form action="/projects/<%= project.id %>/issues" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required><br>
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description" required></textarea><br>
+
+        <label for="labels">Labels:</label>
+        <input type="text" name="labels" id="labels"><br>
+
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" required><br>
+
+        <input type="submit" value="Create Issue">
+    </form>
+</body>
+</html>

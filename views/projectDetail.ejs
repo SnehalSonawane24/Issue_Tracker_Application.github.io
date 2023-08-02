@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Tracker - Project Detail</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <h1><%= project.name %></h1>
+    <p>Description: <%= project.description %></p>
+    <p>Author: <%= project.author %></p>
+    <h2>Issues</h2>
+    <form action="/projects/<%= project.id %>/filter" method="post">
+        <label for="labels">Filter by Labels:</label>
+        <input type="text" name="labels" id="labels">
+        <button type="submit">Filter</button>
+    </form>
+    <form action="/projects/<%= project.id %>/filter" method="post">
+        <label for="author">Filter by Author:</label>
+        <input type="text" name="author" id="author">
+        <button type="submit">Filter</button>
+    </form>
+    <form action="/projects/<%= project.id %>/search" method="post">
+        <label for="search">Search by Title or Description:</label>
+        <input type="text" name="search" id="search">
+        <button type="submit">Search</button>
+    </form>
+    <a href="/projects/<%= project.id %>/create-issue">Create New Issue</a>
+    <ul>
+        <% issues.forEach(issue => { %>
+            <li>
+                <a href="/projects/<%= project.id %>/issues/<%= issue.id %>">
+                    <%= issue.title %>
+                </a>
+                - <%= issue.description %>
+                - Labels: <%= issue.labels.join(', ') %>
+                - Author: <%= issue.author %>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

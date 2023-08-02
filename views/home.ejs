@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Tracker - Home</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <h1>Issue Tracker - Home Page</h1>
+    <ul>
+        <% projects.forEach(project => { %>
+            <li><a href="/projects/<%= project.id %>"><%= project.name %></a></li>
+        <% }); %>
+    </ul>
+    <a href="/create">Create New Project</a>
+</body>
+</html>
